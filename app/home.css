@@ -1,0 +1,103 @@
+.app-container {
+  width: 100%;
+  height: 100vh; /* ✅ FIX */
+  position: relative;
+  color: white;
+  background-color: black;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow-x: hidden;
+  overflow-y: hidden; /* ✅ FIX (was auto) */
+  box-sizing: border-box;
+}
+
+/* KEEP banner EXACT */
+.gambleaware-banner {
+  width: 100%;
+  text-align: center;
+  background-color: #111;
+  color: #f5ec9b;
+  padding: 0.5rem 0;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  border-top: 1px solid rgba(255, 215, 0, 0.3);
+  border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+/* --- ONLY TIGHTENED SPACING --- */
+.countdown {
+  display: flex;
+  gap: 1rem;              /* ✅ was 2rem */
+  margin-top: 10px;       /* ✅ was 50px */
+}
+
+/* --- ONLY SIZE REDUCTION --- */
+.unit {
+  position: relative;
+  width: 90px;            /* ✅ was 112px */
+  height: 130px;          /* ✅ was 160px */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: visible;
+}
+
+.ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 90px;            /* ✅ match unit */
+  height: 90px;           /* ✅ match */
+  overflow: visible;
+  z-index: 0;
+}
+
+.unit .value {
+  width: 90px;
+  height: 90px;
+  font-size: 2.6rem;      /* ✅ was 3.4rem */
+}
+
+/* --- GLOBAL FIX (CRITICAL) --- */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;     /* ✅ prevents page scroll */
+  font-family: sans-serif;
+}
+
+/* KEEP EVERYTHING ELSE EXACTLY AS YOU HAD IT */
+
+/* FIX STORE BANNER LAYOUT */
+.app-container > div:has(.store-links),
+.app-container > div:has(.buttons) {
+  flex-shrink: 0;
+}
+
+.store-links {
+  text-align: center;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.store-links p {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.buttons img {
+  height: 55px;
+  width: 180px;
+  object-fit: contain;
+}

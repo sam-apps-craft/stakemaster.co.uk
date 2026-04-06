@@ -1,65 +1,201 @@
-import Image from "next/image";
+"use client";
+
+import { useEffect, useState, useRef } from "react";
+import { useRouter } from "next/navigation";
+
+import StoreBanner from "@/components/StoreBanner";
+import GambleAwareBanner from "@/components/GambleAwareBanner";
+import AgeGate from "@/components/AgeGate";
+
+import "@/app/globals.css";
+
+const SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycby4yU7aP5jqHuZktqEqGl9HhWwu9ZLSXZpwCvyIcrz3q_WHLV-RkJmIalCCb1iVwTuX/exec";
 
 export default function Home() {
+  const [timeLeft, setTimeLeft] = useState<any>({});
+  const [signupCount, setSignupCount] = useState(0);
+
+  const launchDateRef = useRef(new Date("2026-05-01T00:00:00"));
+  const router = useRouter();
+  const SHOW_STORE = new Date() >= launchDateRef.current;
+
+  useEffect(() => {
+    const updateCountdown = () => {
+      const now = new Date();
+      const diff = launchDateRef.current.getTime() - now.getTime();
+
+      setTimeLeft({
+        days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((diff / (1000 * 60)) % 60),
+        seconds: Math.floor((diff / 1000) % 60),
+      });
+    };
+
+    updateCountdown();
+    const timer = setInterval(updateCountdown, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  function loadSignupCount() {
+    const callbackName = "signup_callback_" + Date.now();
+    const script = document.createElement("script");
+
+    (window as any)[callbackName] = function (data: any) {
+      setSignupCount(data.count || 0);
+      delete (window as any)[callbackName];
+      document.body.removeChild(script);
+    };
+
+    script.src = SCRIPT_URL + "?callback=" + callbackName;
+    document.body.appendChild(script);
+  }
+
+  useEffect(() => {
+    loadSignupCount();
+    const interval = setInterval(loadSignupCount, 15000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // ✅ ADDED: server-side Meta Conversion API call
+  useEffect(() => {
+fetch(
+  "https://europe-west2-stakemaster-website.cloudfunctions.net/metaConversion"
+);
+  }, []);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <>
+      <AgeGate />
+
+      <div
+        className="app-container"
+        style={{
+          backgroundColor: "black",
+          padding: "0.5rem",
+          height: "100vh",
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        <div
+          style={{
+            flex: 1,
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            overflow: "hidden",
+          }}
+        >
+          <div
+            className="countdown"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              flexWrap: "wrap",
+              gap: "0.75rem",
+              marginBottom: "1rem",
+            }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+            {["days", "hours", "minutes", "seconds"].map((unit) => (
+              <div className="unit" key={unit}>
+                <svg className="ring" viewBox="0 0 120 120">
+                  <circle cx="60" cy="60" r="50" />
+                </svg>
+                <div className="value glow">{timeLeft[unit] ?? "0"}</div>
+                <div className="label">{unit.toUpperCase()}</div>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ textAlign: "center", marginBottom: "1rem" }}>
+            <img
+              src="/logo.png"
+              alt="StakeMaster Logo"
+              style={{
+                width: "auto",
+                maxWidth: "80vw",
+                maxHeight: "38vh",
+                height: "auto",
+              }}
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "1.25rem",
+                marginTop: "0.75rem",
+              }}
+            >
+              <a
+                href="https://www.facebook.com/profile.php?id=61578386566188"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src="/Facebook_Logo_Primary.png"
+                  style={{ width: "clamp(32px, 6vw, 56px)" }}
+                />
+              </a>
+
+              <a
+                href="https://www.instagram.com/p/DMfAZirMuEl/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src="/Instagram_Glyph_Gradient.png"
+                  style={{ width: "clamp(32px, 6vw, 56px)" }}
+                />
+              </a>
+            </div>
+
+            <div
+              className="flashing-gold"
+              style={{
+                marginTop: "0.75rem",
+                fontSize: "clamp(1.2rem, 3vw, 2rem)",
+              }}
+            >
+              Get Ready... Launching 1st May 2026
+            </div>
+
+            <div
+              style={{
+                marginTop: "0.5rem",
+                fontSize: "clamp(1rem, 2vw, 1.3rem)",
+                color: "gold",
+                fontWeight: "bold",
+              }}
+            >
+              {signupCount} people already joined the waitlist
+            </div>
+
+            <div style={{ marginTop: "1rem" }}>
+              <button
+                className="top-button flash-button"
+                onClick={() => {
+                  window.fbq?.("track", "Lead"); // ✅ ADDED
+                  router.push("/signup");
+                }}
+              >
+                SIGN UP NOW
+              </button>
+            </div>
+          </div>
+
+          {SHOW_STORE && (
+            <div style={{ textAlign: "center", marginBottom: "1rem" }}>
+              <StoreBanner />
+            </div>
+          )}
         </div>
-      </main>
-    </div>
+
+        <GambleAwareBanner />
+      </div>
+    </>
   );
 }

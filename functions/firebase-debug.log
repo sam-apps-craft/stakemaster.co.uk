@@ -1,0 +1,211 @@
+[debug] [2026-04-06T16:57:24.263Z] ----------------------------------------------------------------------
+[debug] [2026-04-06T16:57:24.265Z] Command:       /Users/samraymond/.nvm/versions/node/v20.20.0/bin/node /Users/samraymond/.nvm/versions/node/v20.20.0/bin/firebase deploy
+[debug] [2026-04-06T16:57:24.265Z] CLI Version:   15.13.0
+[debug] [2026-04-06T16:57:24.265Z] Platform:      darwin
+[debug] [2026-04-06T16:57:24.265Z] Node Version:  v20.20.0
+[debug] [2026-04-06T16:57:24.265Z] Time:          Mon Apr 06 2026 17:57:24 GMT+0100 (British Summer Time)
+[debug] [2026-04-06T16:57:24.265Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-04-06T16:57:24.971Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-04-06T16:57:24.971Z] > authorizing via signed-in user (sam.apps.craft@gmail.com)
+[debug] [2026-04-06T16:57:24.972Z] [iam] checking project stakemaster-website for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2026-04-06T16:57:24.972Z] Checked if tokens are valid: true, expires at: 1775497502416
+[debug] [2026-04-06T16:57:24.972Z] Checked if tokens are valid: true, expires at: 1775497502416
+[debug] [2026-04-06T16:57:24.972Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/stakemaster-website:testIamPermissions [none]
+[debug] [2026-04-06T16:57:24.972Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/stakemaster-website:testIamPermissions  x-goog-user-project=stakemaster-website
+[debug] [2026-04-06T16:57:24.973Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/stakemaster-website:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-04-06T16:57:25.615Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/stakemaster-website:testIamPermissions 200
+[debug] [2026-04-06T16:57:25.615Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/stakemaster-website:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-04-06T16:57:25.616Z] Checked if tokens are valid: true, expires at: 1775497502416
+[debug] [2026-04-06T16:57:25.616Z] Checked if tokens are valid: true, expires at: 1775497502416
+[debug] [2026-04-06T16:57:25.616Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/stakemaster-website/serviceAccounts/stakemaster-website@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2026-04-06T16:57:25.616Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/stakemaster-website/serviceAccounts/stakemaster-website@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2026-04-06T16:57:26.266Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/stakemaster-website/serviceAccounts/stakemaster-website@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2026-04-06T16:57:26.266Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/stakemaster-website/serviceAccounts/stakemaster-website@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2026-04-06T16:57:26.267Z] Checked if tokens are valid: true, expires at: 1775497502416
+[debug] [2026-04-06T16:57:26.267Z] Checked if tokens are valid: true, expires at: 1775497502416
+[debug] [2026-04-06T16:57:26.267Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/stakemaster-website [none]
+[debug] [2026-04-06T16:57:26.568Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/stakemaster-website 200
+[debug] [2026-04-06T16:57:26.568Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/stakemaster-website {"projectId":"stakemaster-website","projectNumber":"775594422957","displayName":"Stakemaster-website","name":"projects/stakemaster-website","resources":{"hostingSite":"stakemaster-website"},"state":"ACTIVE","etag":"1_6c54fc3e-af94-4cba-9890-08e166cbdaa0"}
+[info] 
+[info] === Deploying to 'stakemaster-website'...
+[info] 
+[info] i  deploying functions, hosting 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run build
+[info] ✔  functions: Finished running predeploy script. 
+[debug] [2026-04-06T16:57:28.279Z] Checked if tokens are valid: true, expires at: 1775497502416
+[debug] [2026-04-06T16:57:28.279Z] Checked if tokens are valid: true, expires at: 1775497502416
+[debug] [2026-04-06T16:57:28.279Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/stakemaster-website [none]
+[debug] [2026-04-06T16:57:28.455Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/stakemaster-website 200
+[debug] [2026-04-06T16:57:28.455Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/stakemaster-website {"projectNumber":"775594422957","projectId":"stakemaster-website","lifecycleState":"ACTIVE","name":"Stakemaster-website","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2025-05-09T12:07:18.572941Z"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2026-04-06T16:57:28.457Z] Checked if tokens are valid: true, expires at: 1775497502416
+[debug] [2026-04-06T16:57:28.457Z] Checked if tokens are valid: true, expires at: 1775497502416
+[debug] [2026-04-06T16:57:28.457Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/stakemaster-website/adminSdkConfig [none]
+[debug] [2026-04-06T16:57:28.729Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/stakemaster-website/adminSdkConfig 200
+[debug] [2026-04-06T16:57:28.730Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/stakemaster-website/adminSdkConfig {"projectId":"stakemaster-website","storageBucket":"stakemaster-website.firebasestorage.app"}
+[debug] [2026-04-06T16:57:28.731Z] Validating nodejs source
+[debug] [2026-04-06T16:57:29.142Z] > [functions] package.json contents: {
+  "name": "functions",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "24"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "axios": "^1.14.0",
+    "firebase-admin": "^13.6.0",
+    "firebase-functions": "^7.0.0"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.9.36",
+    "firebase-functions-test": "^3.4.1",
+    "typescript": "^6.0.0"
+  },
+  "private": true
+}
+[debug] [2026-04-06T16:57:29.142Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2026-04-06T16:57:29.143Z] Could not find functions.yaml. Must use http discovery
+[debug] [2026-04-06T16:57:29.151Z] Found firebase-functions binary at '/Users/samraymond/Documents/stakemaster/stakemaster-co-uk/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8269
+
+[debug] [2026-04-06T16:57:29.466Z] Got response from /__/functions.yaml {"endpoints":{"metaConversion":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":10,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","region":["europe-west2"],"labels":{},"httpsTrigger":{},"entryPoint":"metaConversion"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] i  extensions: ensuring required API firebaseextensions.googleapis.com is enabled... 
+[debug] [2026-04-06T16:57:33.490Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-04-06T16:57:33.490Z] > authorizing via signed-in user (sam.apps.craft@gmail.com)
+[debug] [2026-04-06T16:57:33.490Z] [iam] checking project stakemaster-website for permissions ["firebase.projects.get","firebaseextensions.instances.list"]
+[debug] [2026-04-06T16:57:33.490Z] Checked if tokens are valid: true, expires at: 1775497502416
+[debug] [2026-04-06T16:57:33.490Z] Checked if tokens are valid: true, expires at: 1775497502416
+[debug] [2026-04-06T16:57:33.490Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/stakemaster-website:testIamPermissions [none]
+[debug] [2026-04-06T16:57:33.490Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/stakemaster-website:testIamPermissions  x-goog-user-project=stakemaster-website
+[debug] [2026-04-06T16:57:33.490Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/stakemaster-website:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2026-04-06T16:57:34.115Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/stakemaster-website:testIamPermissions 200
+[debug] [2026-04-06T16:57:34.115Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/stakemaster-website:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2026-04-06T16:57:34.116Z] Checked if tokens are valid: true, expires at: 1775497502416
+[debug] [2026-04-06T16:57:34.116Z] Checked if tokens are valid: true, expires at: 1775497502416
+[debug] [2026-04-06T16:57:34.117Z] >>> [apiv2][query] GET https://firebaseextensions.googleapis.com/v1beta/projects/stakemaster-website/instances pageSize=100&pageToken=
+[debug] [2026-04-06T16:57:34.867Z] <<< [apiv2][status] GET https://firebaseextensions.googleapis.com/v1beta/projects/stakemaster-website/instances 200
+[debug] [2026-04-06T16:57:34.867Z] <<< [apiv2][body] GET https://firebaseextensions.googleapis.com/v1beta/projects/stakemaster-website/instances {}
+[info] i  functions: preparing functions directory for uploading... 
+[info] i  functions: packaged /Users/samraymond/Documents/stakemaster/stakemaster-co-uk/functions (72.85 KB) for uploading 
+[debug] [2026-04-06T16:57:34.906Z] Checked if tokens are valid: true, expires at: 1775497502416
+[debug] [2026-04-06T16:57:34.906Z] Checked if tokens are valid: true, expires at: 1775497502416
+[debug] [2026-04-06T16:57:34.906Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/projects/stakemaster-website/locations/-/functions [none]
+[debug] [2026-04-06T16:57:35.481Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/projects/stakemaster-website/locations/-/functions 200
+[debug] [2026-04-06T16:57:35.482Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/projects/stakemaster-website/locations/-/functions {}
+[debug] [2026-04-06T16:57:35.482Z] Checked if tokens are valid: true, expires at: 1775497502416
+[debug] [2026-04-06T16:57:35.482Z] Checked if tokens are valid: true, expires at: 1775497502416
+[debug] [2026-04-06T16:57:35.483Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/stakemaster-website/locations/-/functions filter=environment%3D%22GEN_2%22
+[debug] [2026-04-06T16:57:36.427Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/stakemaster-website/locations/-/functions 200
+[debug] [2026-04-06T16:57:36.427Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/stakemaster-website/locations/-/functions {"functions":[{"name":"projects/stakemaster-website/locations/europe-west2/functions/metaConversion","buildConfig":{"build":"projects/775594422957/locations/europe-west2/builds/350c60f6-8db1-4c14-ac4a-19e643703d07","runtime":"nodejs24","entryPoint":"metaConversion","source":{"storageSource":{"bucket":"gcf-v2-sources-775594422957-europe-west2","object":"metaConversion/function-source.zip","generation":"1775494315380511"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/stakemaster-website/locations/europe-west2/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-775594422957-europe-west2","object":"metaConversion/function-source.zip","generation":"1775494315380511"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/stakemaster-website/serviceAccounts/775594422957-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/stakemaster-website/locations/europe-west2/services/metaconversion","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"stakemaster-website\",\"storageBucket\":\"stakemaster-website.firebasestorage.app\"}","GCLOUD_PROJECT":"stakemaster-website","EVENTARC_CLOUD_EVENT_SOURCE":"projects/stakemaster-website/locations/europe-west2/services/metaConversion","FUNCTION_TARGET":"metaConversion","LOG_EXECUTION_ID":"true"},"maxInstanceCount":10,"ingressSettings":"ALLOW_ALL","uri":"https://metaconversion-lnbaplqbzq-nw.a.run.app","serviceAccountEmail":"775594422957-compute@developer.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"metaconversion-00001-cat","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"ACTIVE","updateTime":"2026-04-06T16:53:08.868678593Z","labels":{"firebase-functions-hash":"21945e7a599de499f8d6290fb47170aa99831330","deployment-tool":"cli-firebase"},"environment":"GEN_2","url":"https://europe-west2-stakemaster-website.cloudfunctions.net/metaConversion","satisfiesPzs":true,"createTime":"2026-04-06T16:51:55.779429232Z","satisfiesPzi":true}]}
+[info] i  functions: ensuring required API run.googleapis.com is enabled... 
+[info] i  functions: ensuring required API eventarc.googleapis.com is enabled... 
+[info] i  functions: ensuring required API pubsub.googleapis.com is enabled... 
+[info] i  functions: ensuring required API storage.googleapis.com is enabled... 
+[info] i  functions: generating the service identity for pubsub.googleapis.com... 
+[debug] [2026-04-06T16:57:36.430Z] Checked if tokens are valid: true, expires at: 1775497502416
+[debug] [2026-04-06T16:57:36.430Z] Checked if tokens are valid: true, expires at: 1775497502416
+[info] i  functions: generating the service identity for eventarc.googleapis.com... 
+[debug] [2026-04-06T16:57:36.430Z] Checked if tokens are valid: true, expires at: 1775497502416
+[debug] [2026-04-06T16:57:36.430Z] Checked if tokens are valid: true, expires at: 1775497502416
+[debug] [2026-04-06T16:57:36.430Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1beta1/projects/775594422957/services/pubsub.googleapis.com:generateServiceIdentity [none]
+[debug] [2026-04-06T16:57:36.430Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1beta1/projects/775594422957/services/pubsub.googleapis.com:generateServiceIdentity  x-goog-user-project=775594422957
+[debug] [2026-04-06T16:57:36.430Z] >>> [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/775594422957/services/pubsub.googleapis.com:generateServiceIdentity {}
+[debug] [2026-04-06T16:57:36.431Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1beta1/projects/775594422957/services/eventarc.googleapis.com:generateServiceIdentity [none]
+[debug] [2026-04-06T16:57:36.431Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1beta1/projects/775594422957/services/eventarc.googleapis.com:generateServiceIdentity  x-goog-user-project=775594422957
+[debug] [2026-04-06T16:57:36.431Z] >>> [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/775594422957/services/eventarc.googleapis.com:generateServiceIdentity {}
+[debug] [2026-04-06T16:57:37.248Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1beta1/projects/775594422957/services/eventarc.googleapis.com:generateServiceIdentity 200
+[debug] [2026-04-06T16:57:37.248Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/775594422957/services/eventarc.googleapis.com:generateServiceIdentity {"name":"operations/finished.DONE_OPERATION","done":true,"response":{"@type":"type.googleapis.com/google.api.serviceusage.v1beta1.ServiceIdentity","email":"service-775594422957@gcp-sa-eventarc.iam.gserviceaccount.com","uniqueId":"100378214560055088570"}}
+[debug] [2026-04-06T16:57:37.256Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1beta1/projects/775594422957/services/pubsub.googleapis.com:generateServiceIdentity 200
+[debug] [2026-04-06T16:57:37.256Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/775594422957/services/pubsub.googleapis.com:generateServiceIdentity {"name":"operations/finished.DONE_OPERATION","done":true,"response":{"@type":"type.googleapis.com/google.api.serviceusage.v1beta1.ServiceIdentity","email":"service-775594422957@gcp-sa-pubsub.iam.gserviceaccount.com","uniqueId":"112853713901834889873"}}
+[debug] [2026-04-06T16:57:37.258Z] Checked if tokens are valid: true, expires at: 1775497502416
+[debug] [2026-04-06T16:57:37.258Z] Checked if tokens are valid: true, expires at: 1775497502416
+[debug] [2026-04-06T16:57:37.258Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/stakemaster-website [none]
+[debug] [2026-04-06T16:57:37.432Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/stakemaster-website 200
+[debug] [2026-04-06T16:57:37.432Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/stakemaster-website {"projectNumber":"775594422957","projectId":"stakemaster-website","lifecycleState":"ACTIVE","name":"Stakemaster-website","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2025-05-09T12:07:18.572941Z"}
+[debug] [2026-04-06T16:57:37.433Z] Checked if tokens are valid: true, expires at: 1775497502416
+[debug] [2026-04-06T16:57:37.433Z] Checked if tokens are valid: true, expires at: 1775497502416
+[debug] [2026-04-06T16:57:37.433Z] >>> [apiv2][query] GET https://compute.googleapis.com/compute/v1/projects/775594422957 [none]
+[debug] [2026-04-06T16:57:37.668Z] <<< [apiv2][status] GET https://compute.googleapis.com/compute/v1/projects/775594422957 403
+[debug] [2026-04-06T16:57:37.668Z] <<< [apiv2][body] GET https://compute.googleapis.com/compute/v1/projects/775594422957 {"error":{"code":403,"message":"Compute Engine API has not been used in project 775594422957 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=775594422957 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.","errors":[{"message":"Compute Engine API has not been used in project 775594422957 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=775594422957 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.","domain":"usageLimits","reason":"accessNotConfigured","extendedHelp":"https://console.developers.google.com"}],"status":"PERMISSION_DENIED","details":[{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"SERVICE_DISABLED","domain":"googleapis.com","metadata":{"consumer":"projects/775594422957","serviceTitle":"Compute Engine API","containerInfo":"775594422957","activationUrl":"https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=775594422957","service":"compute.googleapis.com"}},{"@type":"type.googleapis.com/google.rpc.LocalizedMessage","locale":"en-US","message":"Compute Engine API has not been used in project 775594422957 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=775594422957 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Google developers console API activation","url":"https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=775594422957"}]}]}}
+[debug] [2026-04-06T16:57:37.669Z] unable to look up default compute service account. Falling back to 775594422957-compute@developer.gserviceaccount.com. Error: {"name":"FirebaseError","children":[],"context":{"body":{"error":{"code":403,"message":"Compute Engine API has not been used in project 775594422957 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=775594422957 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.","errors":[{"message":"Compute Engine API has not been used in project 775594422957 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=775594422957 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.","domain":"usageLimits","reason":"accessNotConfigured","extendedHelp":"https://console.developers.google.com"}],"status":"PERMISSION_DENIED","details":[{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"SERVICE_DISABLED","domain":"googleapis.com","metadata":{"consumer":"projects/775594422957","serviceTitle":"Compute Engine API","containerInfo":"775594422957","activationUrl":"https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=775594422957","service":"compute.googleapis.com"}},{"@type":"type.googleapis.com/google.rpc.LocalizedMessage","locale":"en-US","message":"Compute Engine API has not been used in project 775594422957 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=775594422957 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Google developers console API activation","url":"https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=775594422957"}]}]}},"response":{"statusCode":403}},"exit":1,"message":"Request to https://compute.googleapis.com/compute/v1/projects/775594422957 had HTTP Error: 403, Compute Engine API has not been used in project 775594422957 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=775594422957 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.","status":403}
+[debug] [2026-04-06T16:57:37.671Z] Checked if tokens are valid: true, expires at: 1775497502416
+[debug] [2026-04-06T16:57:37.671Z] Checked if tokens are valid: true, expires at: 1775497502416
+[debug] [2026-04-06T16:57:37.671Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/stakemaster-website/versions [none]
+[debug] [2026-04-06T16:57:37.671Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/stakemaster-website/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2026-04-06T16:57:39.475Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/stakemaster-website/versions 200
+[debug] [2026-04-06T16:57:39.476Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/stakemaster-website/versions {"name":"projects/775594422957/sites/stakemaster-website/versions/0920a338e14686db","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2026-04-06T16:57:39.477Z] Checked if tokens are valid: true, expires at: 1775497502416
+[debug] [2026-04-06T16:57:39.477Z] Checked if tokens are valid: true, expires at: 1775497502416
+[debug] [2026-04-06T16:57:39.477Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/stakemaster-website/billingInfo [none]
+[debug] [2026-04-06T16:57:40.207Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/stakemaster-website/billingInfo 200
+[debug] [2026-04-06T16:57:40.207Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/stakemaster-website/billingInfo {"name":"projects/stakemaster-website/billingInfo","projectId":"stakemaster-website","billingAccountName":"billingAccounts/014B14-AE2448-0F9D48","billingEnabled":true}
+[info] i  hosting[stakemaster-website]: beginning deploy... 
+[info] i  hosting[stakemaster-website]: found 66 files in out 
+[debug] [2026-04-06T16:57:40.235Z] [hosting] uploading with 200 concurrency
+[debug] [2026-04-06T16:57:40.240Z] Checked if tokens are valid: true, expires at: 1775497502416
+[debug] [2026-04-06T16:57:40.241Z] Checked if tokens are valid: true, expires at: 1775497502416
+[debug] [2026-04-06T16:57:40.242Z] [hosting] hash cache [b3V0] stored for 66 files
+[debug] [2026-04-06T16:57:40.242Z] [hosting][hash queue][FINAL] {"max":3,"min":0,"avg":0.7284458137142343,"active":0,"complete":66,"success":66,"errored":0,"retried":0,"total":66,"elapsed":5}
+[debug] [2026-04-06T16:57:40.242Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/775594422957/sites/stakemaster-website/versions/0920a338e14686db:populateFiles [none]
+[debug] [2026-04-06T16:57:40.242Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/775594422957/sites/stakemaster-website/versions/0920a338e14686db:populateFiles {"files":{"/window.svg":"bf07bc7ddc1ae03e7936a9347de10e85cf9a0e51f99bd8293b2a8eeca6463b49","/vercel.svg":"ffb3d6634c37da9451d60557ed0e6e513e2889672e0bf202d2558062062a048a","/signup.txt":"719c99436359ee91ae3a140c8d3e77d0f218db04efce4a8f358237abe71a24c7","/signup.html":"edfa1ee4ed25b5f1396f6fae98ff9682e832e66eaac230230c40fd5d98500655","/privacy-policy.txt":"1dc18638cf1985888cfe4aaebfa2efffa56a6ab63d510727c22bc66de46a2502","/privacy-policy.html":"91f9092bd55fdd48e7c352a50e8394fbc4c3d815814cab8301a0a19a59cfa6e1","/og-image.jpg":"c72be4079827d3c961b5fd05331f8a1dab6a31a1196faa5a4666ce681aadf7f5","/next.svg":"7b16665552cb47db34db342505d6d340caaf5813ca2cba1df3536ed67ea33f64","/logo.png":"1c45a2fcb78f9fe7587f32d6f333e2b7710d58382eb882f42aad578ce4228286","/index.txt":"19fd99a5b5cdc7e2cb83bf957b5aa409b85f2aed3c6367ac4aeb26fae339df3b","/index.html":"c5d289c26aec00f9ad7d79d19f4598f853a8c950e67071883574d46f9091fd20","/icon.png":"bfacf3ef8ea202f3d5cbd72bd0f0bb03ef63bf4965e779a7bdc8f31993ab2eeb","/icon.ico":"c9e0cbc736b444ed6851dbab051f54f0dd0ea61f5abd44c86d13a805e5bc287b","/google-play.png":"8b701c628d4509ab6a896a777f840bcf393a212762ebb341ee7b2a1a0099fad7","/globe.svg":"914fe1f576f68698d9e329ea8ec6c542d8d5f150af08f1a360d188fed7597c23","/formimage.png":"8a669af9fd32482c2624e6dba52f1b65158424dc975548dd8375e6ed8c5d1d89","/file.svg":"cb6477bad43c44ba222b8cddfa7e4fe646b19ec7449646e8c2a426354faa630e","/favicon.ico":"8b9c4dce3353938d2027ab21f0489807587db05d65ef390a6947d32312e501a0","/browser.png":"88a32db08684ecaf2ec54d6b284dbfd3465fd800d47c1c628593cca7656f390a","/app-store.png":"c77e6dfa4c25b50ce694d804bdd5202e7f7371aabc41db109e967f297ba5e030","/_not-found.txt":"1da0524e336d649fc453aa1a34b13bb3a1af20cbdc0f6458ab166f4acaf0ade9","/_not-found.html":"a11a3533b219ec304e84e66d475a56e01a15de63a14cdb6ea9d19a062ffdafc7","/__next._tree.txt":"a0fcf6cdda36faecb42fe2435f8fbb3bba304a24295f00404494d6b1eb69499f","/__next._index.txt":"2748b04ec42ba33ff97005de51fd9ffe1e38bac8ce41af4d7ec94283f02caa66","/__next._head.txt":"b58fc17d5370f70fcd5fe4e9ba49accb87a06d76bf071fe1a904aa5151002ee4","/__next._full.txt":"19fd99a5b5cdc7e2cb83bf957b5aa409b85f2aed3c6367ac4aeb26fae339df3b","/__next.__PAGE__.txt":"1c5c80a80b90073cfa90180f429edadf5df6e32b1a19d38ad156f3a3005a8541","/NatGam.png":"ae235031bfa2e2492d1df3e3489660a369e90791b1b700c99f2eebe0b08c3d04","/Instagram_Glyph_Gradient.png":"f7d0afe3898372e8d8b4efd15ed5f5d39fc09e45da66992a57ac7f447963f159","/GamCare-logo.jpg":"73921b6d2c78d4ac194ac2db0312e1c247d0f08abb1155c0cbe9e9e07cd92b17","/Facebook_Logo_Primary.png":"5032c0a37347c719d89aa56aefef5dffe1379c9aaea79d77b112a48eea64936d","/404.html":"a11a3533b219ec304e84e66d475a56e01a15de63a14cdb6ea9d19a062ffdafc7","/signup/__next.signup.txt":"28a2927139253b1ccdde3e4ac7a1f004a35c52792e5a205e90dcb7c394531205","/signup/__next.signup.__PAGE__.txt":"e5ee0824461f1c8ba12508b78aa4925fe5fae0d7082aedccd049fa6194a82900","/signup/__next._tree.txt":"9c10453b5093a315d9e99ee7704418a62d5edebe4bff0299666f706e3cdabca7","/signup/__next._index.txt":"2748b04ec42ba33ff97005de51fd9ffe1e38bac8ce41af4d7ec94283f02caa66","/signup/__next._head.txt":"b58fc17d5370f70fcd5fe4e9ba49accb87a06d76bf071fe1a904aa5151002ee4","/signup/__next._full.txt":"719c99436359ee91ae3a140c8d3e77d0f218db04efce4a8f358237abe71a24c7","/privacy-policy/__next.privacy-policy.txt":"28a2927139253b1ccdde3e4ac7a1f004a35c52792e5a205e90dcb7c394531205","/privacy-policy/__next.privacy-policy.__PAGE__.txt":"ad22940e66d61d46792a6a17a54cf82df4887df3f3cbe84a83dba261449cded8","/privacy-policy/__next._tree.txt":"fbab998939ed872610927c6795659f107282f71e79a45fac9cbcf2c70ecea438","/privacy-policy/__next._index.txt":"2748b04ec42ba33ff97005de51fd9ffe1e38bac8ce41af4d7ec94283f02caa66","/privacy-policy/__next._head.txt":"b58fc17d5370f70fcd5fe4e9ba49accb87a06d76bf071fe1a904aa5151002ee4","/privacy-policy/__next._full.txt":"1dc18638cf1985888cfe4aaebfa2efffa56a6ab63d510727c22bc66de46a2502","/_not-found/__next._tree.txt":"a87872473797de3e728c54572c33661145d0a17e4e7219cfda76580951ed691a","/_not-found/__next._not-found.txt":"28a2927139253b1ccdde3e4ac7a1f004a35c52792e5a205e90dcb7c394531205","/_not-found/__next._not-found.__PAGE__.txt":"f8dee1a84f32ca3c4b7dd4f13add5e33af0cf54d67ffd8ed4049f9a8cc1cfb98","/_not-found/__next._index.txt":"2748b04ec42ba33ff97005de51fd9ffe1e38bac8ce41af4d7ec94283f02caa66","/_not-found/__next._head.txt":"bccdf123064fae8bc83e3b24f8c7697dd003f12362aa7a46334cd917a4661949","/_not-found/__next._full.txt":"1da0524e336d649fc453aa1a34b13bb3a1af20cbdc0f6458ab166f4acaf0ade9","/_next/static/media/favicon.0x3dzn~oxb6tn.ico":"8b9c4dce3353938d2027ab21f0489807587db05d65ef390a6947d32312e501a0","/_next/static/chunks/turbopack-0.~8-hp_n_.pi.js":"0374f97970833562f5b77f3d8c8f068e9002b48c5c2a16f1926d3f4a225c3d8f","/_next/static/chunks/0zsd2uwj-vsxu.js":"fc798e84c4300725748456f462a84c591801193a50b6478b23bb80cf2ff44e18","/_next/static/chunks/0vhbbf~qn.try.js":"92f42e7a62723f39bdd9b794dd56eb25d1a8b57e9ff64e2500e169980d388184","/_next/static/chunks/0p7s21x70w3q6.js":"de0a76b5ed3ea69d1a11379f7659f52e42a970008df34529989cf8f0fe13b04f","/_next/static/chunks/0icugpwqd9d.m.css":"222873a5fc8d5e8d7b93029c365a576affe17ff9c6550ca2df9a0be4ef60152c","/_next/static/chunks/0e1uvfya0u~ef.js":"94180e4e1e99b37547823a64301f61c52b1e9c8d32ded9ba63558563480870fe","/_next/static/chunks/0dbhjjzl8qfwv.js":"12cbac7fc7cc5b7595da2bddad057e4f24a4d941ee5a8dd53c6d78d44720b817","/_next/static/chunks/0bogtdbh.dcu1.js":"1f63eb589843157c6e19ff17470128c65df5d185f419e0f73bc10b293d779fe0","/_next/static/chunks/0a5mlusgtlebc.js":"31baa9e14e12331b344fb25e85f3211a450cfd0fcf9efc3e3acf5dee6fb4e9e8","/_next/static/chunks/08d7-1vls_tvk.js":"acfebf5e14a4d53bf1e14b084e0427f252293e2ebc4583540df379cad91f76fb","/_next/static/chunks/03~yq9q893hmn.js":"67dee1c02c6a6700d63b5c1898cf2df618101a68a395db469192763d24925a23","/_next/static/chunks/02i7dfk78~t~2.js":"b029f1773b408b6aa804df9238251480c0601a5a470058dfb21ae0bbc5a97190","/_next/static/6Xf3oYme7j93SHzeOS-Px/_ssgManifest.js":"02dbc1aeab6ef0a6ff2ff9a1643158cf9bb38929945eaa343a3627dee9ba6778","/_next/static/6Xf3oYme7j93SHzeOS-Px/_clientMiddlewareManifest.js":"111d6778f1ad49c6d53d2afe18b83896c7f0692e57e7c959628d3b90d187a887","/_next/static/6Xf3oYme7j93SHzeOS-Px/_buildManifest.js":"30ef2ac8f5c7eb81cae36ed0e00068cbbdf1fe45eaa179abe62d8e5cbcb54834"}}
+[debug] [2026-04-06T16:57:41.027Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/775594422957/sites/stakemaster-website/versions/0920a338e14686db:populateFiles 200
+[debug] [2026-04-06T16:57:41.027Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/775594422957/sites/stakemaster-website/versions/0920a338e14686db:populateFiles {"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/stakemaster-website/versions/0920a338e14686db/files"}
+[debug] [2026-04-06T16:57:41.028Z] [hosting][populate queue][FINAL] {"max":788,"min":788,"avg":788,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":788}
+[debug] [2026-04-06T16:57:41.028Z] [hosting] uploads queued: 0
+[debug] [2026-04-06T16:57:41.028Z] [hosting][upload queue][FINAL] {"max":0,"min":9999999999,"avg":0,"active":0,"complete":0,"success":0,"errored":0,"retried":0,"total":0,"elapsed":1775494661028}
+[info] ✔  hosting[stakemaster-website]: file upload complete 
+[debug] [2026-04-06T16:57:41.030Z] [hosting] deploy completed after 819ms
+[info] i  functions: Skipping the deploy of unchanged functions. 
+[info] ✔  functions[metaConversion(europe-west2)] Skipped (No changes detected) 
+[debug] [2026-04-06T16:57:41.033Z] Total Function Deployment time: 0
+[debug] [2026-04-06T16:57:41.033Z] 0 Functions Deployed
+[debug] [2026-04-06T16:57:41.033Z] 0 Functions Errored
+[debug] [2026-04-06T16:57:41.033Z] 0 Function Deployments Aborted
+[debug] [2026-04-06T16:57:41.033Z] Average Function Deployment time: NaN
+[debug] [2026-04-06T16:57:41.033Z] Not printing URL for HTTPS function. Typically this means it didn't match a filter or we failed deployment
+[debug] [2026-04-06T16:57:41.034Z] Checked if tokens are valid: true, expires at: 1775497502416
+[debug] [2026-04-06T16:57:41.034Z] Checked if tokens are valid: true, expires at: 1775497502416
+[debug] [2026-04-06T16:57:41.034Z] >>> [apiv2][query] GET https://artifactregistry.googleapis.com/v1/projects/stakemaster-website/locations/europe-west2/repositories/gcf-artifacts [none]
+[debug] [2026-04-06T16:57:41.261Z] <<< [apiv2][status] GET https://artifactregistry.googleapis.com/v1/projects/stakemaster-website/locations/europe-west2/repositories/gcf-artifacts 200
+[debug] [2026-04-06T16:57:41.261Z] <<< [apiv2][body] GET https://artifactregistry.googleapis.com/v1/projects/stakemaster-website/locations/europe-west2/repositories/gcf-artifacts {"name":"projects/stakemaster-website/locations/europe-west2/repositories/gcf-artifacts","format":"DOCKER","description":"This repository is created and used by Cloud Functions for storing function docker images.","labels":{"goog-managed-by":"cloudfunctions"},"createTime":"2026-04-06T16:52:15.821065Z","updateTime":"2026-04-06T16:53:41.554328Z","mode":"STANDARD_REPOSITORY","cleanupPolicies":{"firebase-functions-cleanup":{"id":"firebase-functions-cleanup","action":"DELETE","condition":{"tagState":"ANY","olderThan":"86400s"}}},"sizeBytes":"105302656","satisfiesPzs":true,"vulnerabilityScanningConfig":{"lastEnableTime":"2026-04-06T16:51:55.963310689Z","enablementState":"SCANNING_DISABLED","enablementStateReason":"API containerscanning.googleapis.com is not enabled."},"satisfiesPzi":true,"registryUri":"europe-west2-docker.pkg.dev/stakemaster-website/gcf-artifacts"}
+[debug] [2026-04-06T16:57:41.261Z] [
+  {
+    "config": {
+      "public": "out",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "site": "stakemaster-website"
+    },
+    "version": "projects/775594422957/sites/stakemaster-website/versions/0920a338e14686db"
+  }
+]
+[info] i  hosting[stakemaster-website]: finalizing version... 
+[debug] [2026-04-06T16:57:41.263Z] Checked if tokens are valid: true, expires at: 1775497502416
+[debug] [2026-04-06T16:57:41.263Z] Checked if tokens are valid: true, expires at: 1775497502416
+[debug] [2026-04-06T16:57:41.263Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/stakemaster-website/versions/0920a338e14686db updateMask=status%2Cconfig
+[debug] [2026-04-06T16:57:41.263Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/stakemaster-website/versions/0920a338e14686db {"status":"FINALIZED","config":{}}
+[debug] [2026-04-06T16:57:43.079Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/stakemaster-website/versions/0920a338e14686db 200
+[debug] [2026-04-06T16:57:43.079Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/stakemaster-website/versions/0920a338e14686db {"name":"projects/775594422957/sites/stakemaster-website/versions/0920a338e14686db","status":"FINALIZED","config":{},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2026-04-06T16:57:38.314075Z","createUser":{"email":"sam.apps.craft@gmail.com"},"finalizeTime":"2026-04-06T16:57:42.897581Z","finalizeUser":{"email":"sam.apps.craft@gmail.com"}}
+[debug] [2026-04-06T16:57:43.079Z] [hosting] finalized version for stakemaster-website:[object Object]
+[info] ✔  hosting[stakemaster-website]: version finalized 
+[info] i  hosting[stakemaster-website]: releasing new version... 
+[debug] [2026-04-06T16:57:43.080Z] Checked if tokens are valid: true, expires at: 1775497502416
+[debug] [2026-04-06T16:57:43.080Z] Checked if tokens are valid: true, expires at: 1775497502416
+[debug] [2026-04-06T16:57:43.080Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/stakemaster-website/channels/live/releases versionName=projects%2F775594422957%2Fsites%2Fstakemaster-website%2Fversions%2F0920a338e14686db
+[debug] [2026-04-06T16:57:43.080Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/stakemaster-website/channels/live/releases {}

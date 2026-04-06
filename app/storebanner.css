@@ -1,0 +1,97 @@
+/* ---- RESPONSIVE GAMBLING SUPPORT BANNER ---- */
+.gambleaware-banner {
+  width: 100%;
+  background-color: #000;
+  border-top: 1px solid rgba(255, 215, 0, 0.25);
+  border-bottom: 1px solid rgba(255, 215, 0, 0.25);
+  text-align: center;
+  padding: 0.4rem 0.6rem;
+  box-sizing: border-box;
+}
+
+.gambleaware-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: clamp(0.4rem, 1.5vw, 1rem);
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* gradient text for headings / links */
+.gambleaware-banner,
+.gambleaware-row a,
+.gambleaware-row span {
+  background: linear-gradient(to right, #905E26, #F5EC9B, #905E26);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+}
+
+/* logo icons fully responsive */
+.banner-icon {
+  width: auto;
+  height: clamp(22px, 4vw, 40px);
+  max-width: 100px;
+  object-fit: contain;
+  flex-shrink: 1;
+  display: block;
+}
+
+/* small responsible gambling message */
+.gambleaware-note {
+  color: #f5ec9b;
+  font-size: clamp(0.65rem, 1.6vw, 0.9rem);
+  line-height: 1.2;
+  margin-top: 0.25rem;
+}
+
+/* modal and buttons reuse your existing theme */
+.policy-buttons {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.policy-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+}
+
+.policy-btn.yes {
+  background-color: #00cc66;
+}
+
+.policy-btn.no {
+  background-color: #cc0000;
+}
+
+/* responsive tightening */
+@media (max-width: 768px) {
+  .banner-icon {
+    height: clamp(20px, 5vw, 35px);
+    max-width: 80px;
+  }
+  .gambleaware-banner {
+    padding: 0.3rem 0.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner-icon {
+    height: clamp(18px, 6vw, 30px);
+    max-width: 70px;
+  }
+  .gambleaware-banner {
+    padding: 0.25rem 0.3rem;
+  }
+  .gambleaware-note {
+    font-size: 0.7rem;
+  }
+}

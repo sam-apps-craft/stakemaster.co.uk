@@ -16,7 +16,7 @@ export default function Home() {
   const [timeLeft, setTimeLeft] = useState<any>({});
   const [signupCount, setSignupCount] = useState(0);
 
-  const launchDateRef = useRef(new Date("2026-05-01T00:00:00"));
+  const launchDateRef = useRef(new Date("2026-07-01T00:00:00"));
   const router = useRouter();
   const SHOW_STORE = new Date() >= launchDateRef.current;
 
@@ -60,9 +60,9 @@ export default function Home() {
 
   // ✅ ADDED: server-side Meta Conversion API call
   useEffect(() => {
-fetch(
-  "https://europe-west2-stakemaster-website.cloudfunctions.net/metaConversion"
-);
+    fetch(
+      "https://europe-west2-stakemaster-website.cloudfunctions.net/metaConversion"
+    );
   }, []);
 
   return (
@@ -160,7 +160,7 @@ fetch(
                 fontSize: "clamp(1.2rem, 3vw, 2rem)",
               }}
             >
-              Get Ready... Launching 1st May 2026
+              Get Ready... Launching 1st July 2026
             </div>
 
             <div

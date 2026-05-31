@@ -1,6 +1,9 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+
+import Image from "next/image";
+
 import { useRouter } from "next/navigation";
 
 import StoreBanner from "@/components/StoreBanner";
@@ -14,51 +17,65 @@ const SCRIPT_URL =
 
 export default function Home() {
   const [timeLeft, setTimeLeft] = useState<any>({});
+
   const [signupCount, setSignupCount] = useState(0);
 
   const launchDateRef = useRef(new Date("2026-07-01T00:00:00"));
+
   const router = useRouter();
+
   const SHOW_STORE = new Date() >= launchDateRef.current;
 
   useEffect(() => {
     const updateCountdown = () => {
       const now = new Date();
+
       const diff = launchDateRef.current.getTime() - now.getTime();
 
       setTimeLeft({
         days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+
         hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+
         minutes: Math.floor((diff / (1000 * 60)) % 60),
+
         seconds: Math.floor((diff / 1000) % 60),
       });
     };
 
     updateCountdown();
+
     const timer = setInterval(updateCountdown, 1000);
+
     return () => clearInterval(timer);
   }, []);
 
   function loadSignupCount() {
     const callbackName = "signup_callback_" + Date.now();
+
     const script = document.createElement("script");
 
     (window as any)[callbackName] = function (data: any) {
       setSignupCount(data.count || 0);
+
       delete (window as any)[callbackName];
+
       document.body.removeChild(script);
     };
 
     script.src = SCRIPT_URL + "?callback=" + callbackName;
+
     document.body.appendChild(script);
   }
 
   useEffect(() => {
     loadSignupCount();
+
     const interval = setInterval(loadSignupCount, 15000);
+
     return () => clearInterval(interval);
   }, []);
 
-  // ✅ ADDED: server-side Meta Conversion API call
   useEffect(() => {
     fetch(
       "https://europe-west2-stakemaster-website.cloudfunctions.net/metaConversion"
@@ -67,24 +84,56 @@ export default function Home() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+
+            "@type": "WebSite",
+
+            name: "StakeMaster",
+
+            url: "https://stakemaster.co.uk",
+
+            description:
+              "StakeMaster betting app for horse racing and football betting.",
+
+            publisher: {
+              "@type": "Organization",
+
+              name: "Apps-Craft Ltd",
+            },
+          }),
+        }}
+      />
+
       <AgeGate />
 
-      <div
+      <main
         className="app-container"
         style={{
           backgroundColor: "black",
+
           padding: "0.5rem",
+
           height: "100vh",
+
           display: "flex",
+
           flexDirection: "column",
         }}
       >
         <div
           style={{
             flex: 1,
+
             display: "flex",
+
             flexDirection: "column",
+
             justifyContent: "center",
+
             overflow: "hidden",
           }}
         >
@@ -92,31 +141,49 @@ export default function Home() {
             className="countdown"
             style={{
               display: "flex",
+
               justifyContent: "center",
+
               flexWrap: "wrap",
+
               gap: "0.75rem",
+
               marginBottom: "1rem",
             }}
           >
             {["days", "hours", "minutes", "seconds"].map((unit) => (
               <div className="unit" key={unit}>
-                <svg className="ring" viewBox="0 0 120 120">
+                <svg className="ring" viewBox="0 0 120 120" aria-hidden="true">
                   <circle cx="60" cy="60" r="50" />
                 </svg>
+
                 <div className="value glow">{timeLeft[unit] ?? "0"}</div>
+
                 <div className="label">{unit.toUpperCase()}</div>
               </div>
             ))}
           </div>
 
-          <div style={{ textAlign: "center", marginBottom: "1rem" }}>
-            <img
+          <div
+            style={{
+              textAlign: "center",
+
+              marginBottom: "1rem",
+            }}
+          >
+            <Image
               src="/logo.png"
-              alt="StakeMaster Logo"
+              alt="StakeMaster Betting App Logo"
+              width={1200}
+              height={600}
+              priority
               style={{
                 width: "auto",
+
                 maxWidth: "80vw",
+
                 maxHeight: "38vh",
+
                 height: "auto",
               }}
             />
@@ -124,63 +191,93 @@ export default function Home() {
             <div
               style={{
                 display: "flex",
+
                 justifyContent: "center",
+
                 alignItems: "center",
+
                 gap: "1.25rem",
+
                 marginTop: "0.75rem",
               }}
             >
               <a
                 href="https://www.facebook.com/profile.php?id=61578386566188"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
+                aria-label="StakeMaster Facebook"
               >
-                <img
+                <Image
                   src="/Facebook_Logo_Primary.png"
-                  style={{ width: "clamp(32px, 6vw, 56px)" }}
+                  alt="Facebook"
+                  width={56}
+                  height={56}
+                  style={{
+                    width: "clamp(32px, 6vw, 56px)",
+
+                    height: "auto",
+                  }}
                 />
               </a>
 
               <a
                 href="https://www.instagram.com/p/DMfAZirMuEl/"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
+                aria-label="StakeMaster Instagram"
               >
-                <img
+                <Image
                   src="/Instagram_Glyph_Gradient.png"
-                  style={{ width: "clamp(32px, 6vw, 56px)" }}
+                  alt="Instagram"
+                  width={56}
+                  height={56}
+                  style={{
+                    width: "clamp(32px, 6vw, 56px)",
+
+                    height: "auto",
+                  }}
                 />
               </a>
             </div>
 
-            <div
+            <h1
               className="flashing-gold"
               style={{
                 marginTop: "0.75rem",
+
                 fontSize: "clamp(1.2rem, 3vw, 2rem)",
               }}
             >
               Get Ready... Launching 1st July 2026
-            </div>
+            </h1>
 
             <div
               style={{
                 marginTop: "0.5rem",
+
                 fontSize: "clamp(1rem, 2vw, 1.3rem)",
+
                 color: "gold",
+
                 fontWeight: "bold",
               }}
             >
               {signupCount} people already joined the waitlist
             </div>
 
-            <div style={{ marginTop: "1rem" }}>
+            <div
+              style={{
+                marginTop: "1rem",
+              }}
+            >
               <button
                 className="top-button flash-button"
                 onClick={() => {
-                  window.fbq?.("track", "Lead"); // ✅ ADDED
+                  window.fbq?.("track", "Lead");
+
                   router.push("/signup");
                 }}
+                aria-label="Sign up to StakeMaster waitlist"
               >
                 SIGN UP NOW
               </button>
@@ -188,14 +285,20 @@ export default function Home() {
           </div>
 
           {SHOW_STORE && (
-            <div style={{ textAlign: "center", marginBottom: "1rem" }}>
+            <div
+              style={{
+                textAlign: "center",
+
+                marginBottom: "1rem",
+              }}
+            >
               <StoreBanner />
             </div>
           )}
         </div>
 
         <GambleAwareBanner />
-      </div>
+      </main>
     </>
   );
 }

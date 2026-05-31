@@ -38,9 +38,12 @@
   justify-content: center;
 }
 
-.signup-container {
+.signup-header {
   width: 100%;
-  max-width: 700px;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  margin-bottom: 1rem;
 }
 
 .signup-header {

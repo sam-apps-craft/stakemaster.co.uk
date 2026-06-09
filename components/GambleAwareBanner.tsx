@@ -128,7 +128,9 @@ export default function GambleAwareBanner() {
         <a href="/privacy-policy" style={linkStyle}>
           Privacy Policy
         </a>
-
+        <a href="/terms-of-use" style={linkStyle}>
+          Terms of Use
+        </a>
         <a
           href="https://www.gamcare.org.uk/get-support/talk-to-us-now/"
           target="_blank"
